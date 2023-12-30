@@ -17,10 +17,8 @@ def get_total_order_amount(order: List[PurchaseItem]):
     The total cost of all the items ordered
     """
 
-    raise NotImplementedError(
-        "REMOVE the error and RETURN the total amount for the order"
-    )
-
+    total_amount = sum(item.price for item in order)
+        return total_amount
 
 def get_service_charge(order: List[PurchaseItem]):
 
@@ -34,9 +32,10 @@ def get_service_charge(order: List[PurchaseItem]):
         Order Amount = 3000, Service Charge = 600
     """
 
-    raise NotImplementedError(
-        "REMOVE the error and RETURN service charge amount for the order"
-    )
+    order_amount = get_total_order_amount(order)
+    increment = order_amount // 100
+    service_charge = min(0.01 * increment * order_amount, 0.20 * order_amount)
+    return service_charge
 
 
 class Option(object):
