@@ -18,7 +18,7 @@ def get_total_order_amount(order: List[PurchaseItem]):
     """
 
     total_amount = sum(item.price for item in order)
-        return total_amount
+    return total_amount
 
 def get_service_charge(order: List[PurchaseItem]):
 
